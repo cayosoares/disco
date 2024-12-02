@@ -57,7 +57,7 @@ def adicionar_disco():
     add_window.geometry("400x450")
     add_window.grab_set()
 
-    # Campos para inserir dados do disco
+    # Campos para colocar informações do disco
     campos = ["Título", "Artista", "Gênero", "Ano", "Preço", "Estoque"]
     entradas = {}
     for i, campo in enumerate(campos):
@@ -182,7 +182,7 @@ def editar_disco(disco):
     edit_window.geometry("400x450")
     edit_window.grab_set()
 
-    # Campos para editar dados do disco
+    # Campos para editar informações do disco
     campos = {
         "Título": disco.titulo,
         "Artista": disco.artista,
@@ -297,3 +297,5 @@ def tela_principal():
 
 # Inicia o programa com a tela de login
 tela_login()
+
+
