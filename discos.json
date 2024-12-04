@@ -1,0 +1,82 @@
+[
+    {
+        "titulo": "Leandro & Leonardo",
+        "artista": "Leandro e Leonardo",
+        "genero": "Sertanejo",
+        "ano": 1992,
+        "preco": 25.5,
+        "estoque": 1
+    },
+    {
+        "titulo": "Leandro & Leonardo, Vol.7",
+        "artista": "Leandro e Leonardo",
+        "genero": "Sertanejo",
+        "ano": 1993,
+        "preco": 34.9,
+        "estoque": 2
+    },
+    {
+        "titulo": "Onde estão os meus passos",
+        "artista": "Barrerito",
+        "genero": "Sertanejo",
+        "ano": 1987,
+        "preco": 40.23,
+        "estoque": 5
+    },
+    {
+        "titulo": "Blusa vermelha",
+        "artista": "Trio Parada Dura",
+        "genero": "Sertanejo",
+        "ano": 1980,
+        "preco": 15.0,
+        "estoque": 2
+    },
+    {
+        "titulo": "Fotografia",
+        "artista": "Chitãozinho e Xoror\u00f3",
+        "genero": "Sertanejo",
+        "ano": 1985,
+        "preco": 20.0,
+        "estoque": 4
+    },
+    {
+        "titulo": "Delicate sound of thunder",
+        "artista": "Pink Floyd",
+        "genero": "Rock",
+        "ano": 1988,
+        "preco": 110.0,
+        "estoque": 2
+    },
+    {
+        "titulo": "Encontro com a velha guarda",
+        "artista": "Vários",
+        "genero": "Samba",
+        "ano": 1976,
+        "preco": 50.43,
+        "estoque": 2
+    },
+    {
+        "titulo": "MPB4",
+        "artista": "Vários",
+        "genero": "MPB",
+        "ano": 1974,
+        "preco": 40.99,
+        "estoque": 3
+    },
+    {
+        "titulo": "Who do we think we are",
+        "artista": "Deep Purple",
+        "genero": "Rock",
+        "ano": 1973,
+        "preco": 240.64,
+        "estoque": 6
+    },
+    {
+        "titulo": "abbey road",
+        "artista": "the beatles",
+        "genero": "rock",
+        "ano": 1969,
+        "preco": 432.0,
+        "estoque": 3
+    }
+]
