@@ -30,9 +30,10 @@ class LojaDiscos:
         for disco in self.discos:
             if disco.titulo.lower() == titulo.lower():
                 self.discos.remove(disco)
+                salvar_discos()
                 return True
         return False
-
+    
     def listar_disco(self):
         return self.discos
     
