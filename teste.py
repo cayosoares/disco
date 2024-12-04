@@ -2,8 +2,8 @@ import json
 import customtkinter as ctk
 from tkinter import messagebox
 
-ctk.set_appearance_mode("system")
-ctk.set_default_color_theme("blue")
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("green")
 
 
 # Classe Disco
@@ -24,6 +24,7 @@ class LojaDiscos:
 
     def adicionar_disco(self, disco):
         self.discos.append(disco)
+        salvar_discos()
 
     def remover_disco(self, titulo):
         for disco in self.discos:
@@ -34,7 +35,7 @@ class LojaDiscos:
 
     def listar_disco(self):
         return self.discos
-
+    
     def buscar_disco(self, termo):
         termo = termo.lower()
         return [
@@ -44,11 +45,10 @@ class LojaDiscos:
                termo in disco.genero.lower() or
                termo == str(disco.ano)
         ]
-
+    
 
 # Instância da loja de discos
 loja = LojaDiscos()
-
 
 # Funções de gerenciamento de discos
 def adicionar_disco():
@@ -57,7 +57,7 @@ def adicionar_disco():
     add_window.geometry("400x450")
     add_window.grab_set()
 
-    # Campos para colocar informações do disco
+    # Campos para inserir dados do disco
     campos = ["Título", "Artista", "Gênero", "Ano", "Preço", "Estoque"]
     entradas = {}
     for i, campo in enumerate(campos):
@@ -65,6 +65,9 @@ def adicionar_disco():
         entrada = ctk.CTkEntry(add_window, width=200)
         entrada.grid(row=i, column=1, padx=10, pady=10)
         entradas[campo] = entrada
+
+    salvar_discos()
+
 
     def confirmar_adicao():
         try:
@@ -121,7 +124,7 @@ def listar_discos():
 def buscar_disco():
     search_window = ctk.CTkToplevel(root)
     search_window.title("Buscar Disco")
-    search_window.geometry("500x400")
+    search_window.geometry("600x400")
     search_window.grab_set()
 
     ctk.CTkLabel(search_window, text="Digite o termo de busca:").pack(pady=10)
@@ -182,7 +185,7 @@ def editar_disco(disco):
     edit_window.geometry("400x450")
     edit_window.grab_set()
 
-    # Campos para editar informações do disco
+    # Campos para editar dados do disco
     campos = {
         "Título": disco.titulo,
         "Artista": disco.artista,
@@ -215,7 +218,20 @@ def editar_disco(disco):
     ctk.CTkButton(edit_window, text="Salvar", command=salvar_edicao).grid(
         row=len(campos), column=1, pady=10
     )
+# Função para salvar discos
+def salvar_discos():
+    with open('discos.json', 'w') as file:
+        json.dump([disco.__dict__ for disco in loja.discos], file, indent=4)
 
+#Função para carregar discos
+def carregar_discos():
+    try:
+        with open('discos.json', 'r', encoding="utf-8") as file:
+            discos_data = json.load(file)
+            for data in discos_data:
+                loja.adicionar_disco(Disco(**data))
+    except FileNotFoundError:
+        pass
 
 
 # Funções de autenticação
@@ -225,8 +241,7 @@ def carregar_usuarios():
             return json.load(file)
     except FileNotFoundError:
         return []
-
-
+    
 def verificar_credenciais(username, password, usuarios):
     for usuario in usuarios:
         if usuario["username"] == username and usuario["password"] == password:
@@ -237,7 +252,7 @@ def verificar_credenciais(username, password, usuarios):
 def tela_login():
     login_window = ctk.CTk()
     login_window.title("Login - Let's Rock")
-    login_window.geometry("400x300")
+    login_window.geometry("600x400")
 
     usuarios = carregar_usuarios()
 
@@ -267,13 +282,12 @@ def tela_login():
     login_window.mainloop()
 
 
-# Tela principal
+# Tela principal!!!!
 def tela_principal():
     global root
     root = ctk.CTk()
     root.title("Let's Rock - Loja de Discos")
     root.geometry("600x400")
-    
 
     frame_main = ctk.CTkFrame(root)
     frame_main.place(relx=0.5, rely=0.5, anchor="center")
@@ -292,10 +306,10 @@ def tela_principal():
         row=1, column=1, padx=10, pady=10
     )
 
+    carregar_discos()
+
     root.mainloop()
 
 
-# Inicia o programa com a tela de login
+# Programa começa com a parte do login
 tela_login()
-
-
