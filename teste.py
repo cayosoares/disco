@@ -6,7 +6,7 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("green")
 
 
-# Classe Disco
+# Classe "Disco"
 class Disco:
     def __init__(self, titulo, artista, genero, ano, preco, estoque):
         self.titulo = titulo
@@ -17,7 +17,7 @@ class Disco:
         self.estoque = estoque
 
 
-# Classe Loja de Discos
+# Classe "Loja de Discos"
 class LojaDiscos:
     def __init__(self):
         self.discos = []
@@ -48,7 +48,7 @@ class LojaDiscos:
         ]
     
 
-# Instância da loja de discos
+# Instância - "loja"
 loja = LojaDiscos()
 
 # Funções de gerenciamento de discos
@@ -58,7 +58,7 @@ def adicionar_disco():
     add_window.geometry("400x450")
     add_window.grab_set()
 
-    # Campos para inserir dados do disco
+    # Campos pra colocar informações do disco
     campos = ["Título", "Artista", "Gênero", "Ano", "Preço", "Estoque"]
     entradas = {}
     for i, campo in enumerate(campos):
@@ -186,7 +186,7 @@ def editar_disco(disco):
     edit_window.geometry("400x450")
     edit_window.grab_set()
 
-    # Campos para editar dados do disco
+    # Campos para editar informações do disco
     campos = {
         "Título": disco.titulo,
         "Artista": disco.artista,
@@ -219,12 +219,12 @@ def editar_disco(disco):
     ctk.CTkButton(edit_window, text="Salvar", command=salvar_edicao).grid(
         row=len(campos), column=1, pady=10
     )
-# Função para salvar discos
+# Função pra "salvar discos"
 def salvar_discos():
     with open('discos.json', 'w') as file:
         json.dump([disco.__dict__ for disco in loja.discos], file, indent=4)
 
-#Função para carregar discos
+#Função pra "carregar discos"
 def carregar_discos():
     try:
         with open('discos.json', 'r', encoding="utf-8") as file:
@@ -284,11 +284,11 @@ def tela_login():
 
 
 # Tela principal!!!!
-def tela_principal():
-    global root
-    root = ctk.CTk()
-    root.title("Let's Rock - Loja de Discos")
-    root.geometry("600x400")
+    def tela_principal():
+        global root
+        root = ctk.CTk()
+        root.title("Let's Rock - Loja de Discos")
+        root.geometry("600x400")
 
     frame_main = ctk.CTkFrame(root)
     frame_main.place(relx=0.5, rely=0.5, anchor="center")
