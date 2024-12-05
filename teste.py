@@ -186,7 +186,7 @@ def editar_disco(disco):
     edit_window.geometry("400x450")
     edit_window.grab_set()
 
-    # Campos para editar informações do disco
+    # Campos pra editar informações do disco
     campos = {
         "Título": disco.titulo,
         "Artista": disco.artista,
@@ -284,15 +284,14 @@ def tela_login():
 
 
 # Tela principal!!!!
-    def tela_principal():
-        global root
-        root = ctk.CTk()
-        root.title("Let's Rock - Loja de Discos")
-        root.geometry("600x400")
+def tela_principal():
+    global root
+    root = ctk.CTk()
+    root.title("Let's Rock - Loja de Discos")
+    root.geometry("600x400")
 
     frame_main = ctk.CTkFrame(root)
     frame_main.place(relx=0.5, rely=0.5, anchor="center")
-
 
     ctk.CTkButton(frame_main, text="Adicionar Disco", command=adicionar_disco).grid(
         row=0, column=0, padx=10, pady=10
@@ -310,7 +309,6 @@ def tela_login():
     carregar_discos()
 
     root.mainloop()
-
 
 # Programa começa com a parte do login
 tela_login()
